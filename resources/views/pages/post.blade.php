@@ -2,8 +2,9 @@
 
 @section('main-row')
 
-    @include('inc.sideArea')
+    @include('inc.navbar')
 
+<div class="container">
     <div class="col-md-10">
 
         <div id="post-header">
@@ -61,7 +62,7 @@
             {!! Form::close() !!}
             
         </div>
-    
+    </div>
     </div> <!-- Main Area -->
 
 @endsection

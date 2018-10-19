@@ -1,4 +1,6 @@
 <?php $__env->startSection('main-row'); ?>
+ <!-- navbar -->
+        <?php echo $__env->make('inc.navbar', \Illuminate\Support\Arr::except(get_defined_vars(), array('__data', '__path')))->render(); ?>
 
     <!-- Main Area -->
     <div class="col-md-8 col-md-offset-2">

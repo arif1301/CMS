@@ -9,16 +9,16 @@
     <div class="col-md-8 col-md-offset-2">
 
         <h2 class="text-center"> Blog </h2>
-        <br/>
+        <br>
 
         @if(count($posts) > 0)
         
         <!-- Loop Through Posts -->
         @foreach($posts as $post)
 
-        <div class="card" style="width: 18rem;">
-            <img class="card-img-top" src="{{'img/b.jpg'}}" style="width:100%" >
-            <div class="card-body">
+        <div class="card" style="width: 25rem;display:inline-block">
+            <img class="card-img-top" src="{{ URL::asset('/img/b.png') }}" alt="Card image cap" style="height: 125px; width: 150px;">
+            <div class="card-block">
                 <h4 class="card-title">{{ $post->title }}</h4>
                 <p class="card-text">{{ $post->author }}</p>
                 <p class="card-text">Post Content</p>

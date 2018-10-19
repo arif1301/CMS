@@ -1,7 +1,8 @@
 <?php $__env->startSection('main-row'); ?>
 
-    <?php echo $__env->make('inc.sideArea', \Illuminate\Support\Arr::except(get_defined_vars(), array('__data', '__path')))->render(); ?>
+    <?php echo $__env->make('inc.navbar', \Illuminate\Support\Arr::except(get_defined_vars(), array('__data', '__path')))->render(); ?>
 
+<div class="container">
     <div class="col-md-10">
 
         <div id="post-header">
@@ -69,7 +70,7 @@
 
             
         </div>
-    
+    </div>
     </div> <!-- Main Area -->
 
 <?php $__env->stopSection(); ?>

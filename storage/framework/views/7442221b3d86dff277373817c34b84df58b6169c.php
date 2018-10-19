@@ -1,25 +1,50 @@
 
-<nav class="navbar navbar-expand-lg navbar-light bg-light">
-  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo03" aria-controls="navbarTogglerDemo03" aria-expanded="false" aria-label="Toggle navigation">
-    <span class="navbar-toggler-icon"></span>
-  </button>
-  <a class="navbar-brand" href="#">CMS Larv</a>
-
-  <div class="collapse navbar-collapse" id="navbarTogglerDemo03">
-    <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
-      <li class="nav-item">
-        <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link" href="#">Post</a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link" href="#">Category</a>
-      </li>
+<div class="navbar navbar-default ">
+  <div class="container">
+    <div class="navbar-header">
+      <a class="navbar-brand" href="#">CMS</a>
+    </div>
+    <button class="navbar-toggle collapsed" type="button" data-toggle="collapse" data-target="#navbar-main" aria-expanded="false">
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+    </button>
+    <ul class="nav navbar-nav">
+      <li><a href="<?php echo e(route('blog.index')); ?>">Dashboard</a></li>
+            <li><a href="<?php echo e(route('post.index')); ?>">Add New Post</a></li>
+            <li><a href="<?php echo e(route('category.index')); ?>">Categories</a></li>
+            <li><a href="#"></a></li>
     </ul>
     <ul class="nav navbar-nav navbar-right">
-      <li><a href="#"><i class="glyphicon glyphicon-user"></i> </a></li>
-      <li><a href="#"><i class="glyphicon glyphicon-log-in"></i> </a></li>
+       <?php if(auth()->guard()->guest()): ?>
+                            <li class="nav-item">
+                                <a class="nav-link" href="<?php echo e(route('login')); ?>"><?php echo e(__('Login')); ?></a>
+                            </li>
+                            <li class="nav-item">
+                                <?php if(Route::has('register')): ?>
+                                    <a class="nav-link" href="<?php echo e(route('register')); ?>"><?php echo e(__('Register')); ?></a>
+                                <?php endif; ?>
+                            </li>
+                        <?php else: ?>
+                            <li class="nav-item dropdown">
+                                <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
+                                    <?php echo e(Auth::user()->name); ?> <span class="caret"></span>
+                                </a>
+
+                                <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
+                                    <a class="dropdown-menu" href="<?php echo e(route('logout')); ?>"
+                                       onclick="event.preventDefault();
+                                                     document.getElementById('logout-form').submit();">
+                                        <?php echo e(__('Logout')); ?>
+
+                                    </a>
+
+                                    <form id="logout-form" action="<?php echo e(route('logout')); ?>" method="POST" style="display: none;">
+                                        <?php echo csrf_field(); ?>
+                                    </form>
+                                </div>
+                            </li>
+                        <?php endif; ?>
     </ul>
   </div>
-</nav>
+</div>

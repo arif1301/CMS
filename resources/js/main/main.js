@@ -19,7 +19,7 @@ $(function() {
                     //Reload the Page 
                     document.location.reload(true);
                 } else if (result.Error) {
-                    console.log('Error From the Server ', result.Error);
+                    console.log('Error From the Sever ', result.Error);
                 }
             },
             error: function(error) {
@@ -54,7 +54,7 @@ $(function() {
                     //Reload the Page 
                     document.location.reload(true);
                 } else if (result.Error) {
-                    console.log('Error From the Server ', result.Error);
+                    console.log('Error From the Sever ', result.Error);
                 }
             },
             error: function(error) {

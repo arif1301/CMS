@@ -7,16 +7,16 @@
     <div class="col-md-8 col-md-offset-2">
 
         <h2 class="text-center"> Blog </h2>
-        <br/>
+        <br>
 
         <?php if(count($posts) > 0): ?>
         
         <!-- Loop Through Posts -->
         <?php $__currentLoopData = $posts; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $post): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
 
-        <div class="card" style="width: 18rem;">
-            <img class="card-img-top" src="<?php echo e('img/b.jpg'); ?>" style="width:100%" >
-            <div class="card-body">
+        <div class="card" style="width: 25rem;display:inline-block">
+            <img class="card-img-top" src="<?php echo e(URL::asset('/img/b.png')); ?>" alt="Card image cap" style="height: 125px; width: 150px;">
+            <div class="card-block">
                 <h4 class="card-title"><?php echo e($post->title); ?></h4>
                 <p class="card-text"><?php echo e($post->author); ?></p>
                 <p class="card-text">Post Content</p>

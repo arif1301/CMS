@@ -1,12 +1,14 @@
 @extends('layouts.app')
 
-@section('content')
+@include('inc.navbar')
+
+@section('main-row')
 <div class="container">
     <div class="row justify-content-center">
         <div class="col-md-8">
             <div class="card">
                 <div class="card-header">{{ __('Register') }}</div>
-
+                <br>
                 <div class="card-body">
                     <form method="POST" action="{{ route('register') }}">
                         @csrf

@@ -40,6 +40,7 @@ class CategoryController extends Controller
     public function store(Request $request)
     {
         //
+
     	$category = new Category();
     	$category->name = $request->categoryName;
     	$category->author = $request->categoryAuthor;
@@ -61,6 +62,7 @@ class CategoryController extends Controller
     public function show($id)
     {
         //
+
     }
 
     /**
@@ -108,7 +110,7 @@ class CategoryController extends Controller
         //Session Massage 
         session()->flash('Success', 'Category Named ' . $category->name . ' Removed Successuflly');
     
-        return json_encode(['Success' => 'Category Named ' . $category->name . ' Removed Successuflly']);
+        return json_encode(['Success' => 'Category Named ' . $category->name . ' Removed Successfully']);
     }
 
     public function editCategory(Request $request) {

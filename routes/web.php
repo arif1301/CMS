@@ -17,12 +17,12 @@ Route::get('/', function () {
 
 Route::get('/', function () {
     return view('pages/dashboard');
-});
+})->name('beranda');
 
 Route::get('/category', 'CategoryController@index')->name('category.index');
 
 
-Route::post('/home', 'CategoryController@store')->name('category.add');
+Route::post('/addCategory', 'CategoryController@store')->name('category.add');
 
 //Remove Category 
 Route::post('/deleteCategory', 'CategoryController@removeCategory')->name('category.remove');
@@ -40,3 +40,7 @@ Route::post('/addPost', 'PostController@store')->name('post.add');
 Route::get('/blog', 'BlogController@index')->name('blog.index');
 //Show Single Post 
 Route::get('/blog/{id}', 'BlogController@show')->name('blog.show');
+
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');

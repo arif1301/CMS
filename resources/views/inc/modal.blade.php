@@ -1,8 +1,4 @@
-<!-- Button trigger modal 
-<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
-  Launch demo modal
-</button>
--->
+
 
 <!-- Remove Modal -->
 <div class="modal fade" id="removeModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
@@ -40,7 +36,7 @@
       <div class="modal-body">
          <form method="POST">
             <div class="form-group">
-                <label for="editedText">New Category</label>
+                <label for="editedText">Update Your Category</label>
                 <input type="text" class="form-control" name="editedText" data-js-type="editedText">
             </div>
          </form>

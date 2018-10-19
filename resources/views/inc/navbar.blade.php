@@ -1,25 +1,49 @@
 
-<nav class="navbar navbar-expand-lg navbar-light bg-light">
-  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo03" aria-controls="navbarTogglerDemo03" aria-expanded="false" aria-label="Toggle navigation">
-    <span class="navbar-toggler-icon"></span>
-  </button>
-  <a class="navbar-brand" href="#">CMS Larv</a>
-
-  <div class="collapse navbar-collapse" id="navbarTogglerDemo03">
-    <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
-      <li class="nav-item">
-        <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link" href="#">Post</a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link" href="#">Category</a>
-      </li>
+<div class="navbar navbar-default ">
+  <div class="container">
+    <div class="navbar-header">
+      <a class="navbar-brand" href="#">CMS</a>
+    </div>
+    <button class="navbar-toggle collapsed" type="button" data-toggle="collapse" data-target="#navbar-main" aria-expanded="false">
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+    </button>
+    <ul class="nav navbar-nav">
+      <li><a href="{{ route('blog.index') }}">Dashboard</a></li>
+            <li><a href="{{ route('post.index') }}">Add New Post</a></li>
+            <li><a href="{{ route('category.index') }}">Categories</a></li>
+            <li><a href="#"></a></li>
     </ul>
     <ul class="nav navbar-nav navbar-right">
-      <li><a href="#"><i class="glyphicon glyphicon-user"></i> </a></li>
-      <li><a href="#"><i class="glyphicon glyphicon-log-in"></i> </a></li>
+       @guest
+                            <li class="nav-item">
+                                <a class="nav-link" href="{{ route('login') }}">{{ __('Login') }}</a>
+                            </li>
+                            <li class="nav-item">
+                                @if (Route::has('register'))
+                                    <a class="nav-link" href="{{ route('register') }}">{{ __('Register') }}</a>
+                                @endif
+                            </li>
+                        @else
+                            <li class="nav-item dropdown">
+                                <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
+                                    {{ Auth::user()->name }} <span class="caret"></span>
+                                </a>
+
+                                <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
+                                    <a class="dropdown-menu" href="{{ route('logout') }}"
+                                       onclick="event.preventDefault();
+                                                     document.getElementById('logout-form').submit();">
+                                        {{ __('Logout') }}
+                                    </a>
+
+                                    <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                                        @csrf
+                                    </form>
+                                </div>
+                            </li>
+                        @endguest
     </ul>
   </div>
-</nav>
+</div>

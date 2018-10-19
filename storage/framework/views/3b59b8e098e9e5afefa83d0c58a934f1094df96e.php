@@ -1,34 +1,48 @@
 <!DOCTYPE html>
 <html lang="en">
-<title>Home</title>
 <head>
-	<meta charset=utf-8>
-	<meta name=viewport content="width=device-width, initial-scale=1">
-	<meta http-equiv="X-UA-Compatible" content="ie=edge">
-	<meta name="csrf-token" content="<?php echo e(csrf_token()); ?>">
-	<title></title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Laravel CMS</title>
 
-	<!-- laravel Assets -->
+    <!-- Ajax POST CALL XCSS Removal -->
+    <meta name="csrf-token" content="<?php echo e(csrf_token()); ?>">
 
-	<link rel="stylesheet" type="text/css" href="<?php echo e(asset('css/app.css')); ?>">
+    <!-- Laravel Assets -->
 
+    <link rel="stylesheet" href="<?php echo e(asset('css/app.css')); ?>" />
 
-	<script src="<?php echo e(asset('js/app.js')); ?>"></script>
+     <!-- Main JS File -->
+    <script src="<?php echo e(asset('js/app.js')); ?>"></script> 
+    
+    <!-- Setup Headers -->
+    <script>
+        $.ajaxSetup({
+            headers: {
+                'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+            }
+        });
+    </script>
 
-	<script>
-		$.ajaxSetup({
-			headers: {
-				'X-CSRF-TOKEN' : $('meta[name="csrf-token"]').attr('content')
-			}
-		})
-	</script>
 </head>
+
 <body>
-		<?php echo $__env->yieldContent('main-row'); ?>
 
-		<?php echo $__env->make('inc.messages', \Illuminate\Support\Arr::except(get_defined_vars(), array('__data', '__path')))->render(); ?>
+   <div class="container-fluid">
+  
+     <div class="row">
 
-		<?php echo $__env->make('inc.modal', \Illuminate\Support\Arr::except(get_defined_vars(), array('__data', '__path')))->render(); ?>
+        <?php echo $__env->make('inc.messages', \Illuminate\Support\Arr::except(get_defined_vars(), array('__data', '__path')))->render(); ?>
+
+        <?php echo $__env->make('inc.modal', \Illuminate\Support\Arr::except(get_defined_vars(), array('__data', '__path')))->render(); ?>
+
+        <?php echo $__env->yieldContent('main-row'); ?>
+
+     </div>
+   
+   </div>
 
 </body>
+
 </html>

@@ -5,6 +5,6 @@
 @section('main-row')
 
 		
-		@include('inc.sideArea')
+		@include('inc.navbar')
 			<!-- Main Area -->
 @endsection

@@ -1,6 +1,8 @@
 @extends('layouts.app')
 
 @section('main-row')
+ <!-- navbar -->
+        @include('inc.navbar')
 
     <!-- Main Area -->
     <div class="col-md-8 col-md-offset-2">
